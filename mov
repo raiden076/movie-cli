@@ -55,5 +55,9 @@ curl \
 --user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
 --header "X-Requested-With: XMLHttpRequest" \
 --data-binary "_token=$token&m4u=$id" \
-https://streamm4u.com/anhjax
+https://streamm4u.com/anhjax \
+-o output.json
 
+# now It should bypass cloudflare and recieve a json file with the embeded link, and we can proceed from there, but, something's wrong, and I don't know what
+# probably with the variables, but i'm not exactly great with bash..,
+# For any help, Thanks in advance.
