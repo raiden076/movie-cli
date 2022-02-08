@@ -31,33 +31,33 @@ cat temp2 | grep "fem\"" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr
 
 
 
-# if [ -n id_f ]; then
+if [ -n id_f ]; then
 
-#         curl \
-# --header "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
-# --compressed \
-# --header "Accept-Language: en-US,en;q=0.5" \
-# --cookie "laravel_session=$cookie; ppu_main_3d9364e08b38a312f0fb17c14107437e=1; ppu_sub_3d9364e08b38a312f0fb17c14107437e=1" \
-# --header "Origin: https://streamm4u.com" \
-# --header "Referer: https://streamm4u.com/watch/movie/automata-2014.1265.html" \
-# --header "Sec-Fetch-Dest: empty" \
-# --header "Sec-Fetch-Mode: cors" \
-# --header "Sec-Fetch-Site: same-origin" \
-# --header "Te: trailers" \
-# --user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
-# --header "X-Requested-With: XMLHttpRequest" \
-# --data-binary "_token=$token&m4u=$id_f" \
-# https://streamm4u.com/anhjax \ |
+curl \
+--header "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+--compressed \
+--header "Accept-Language: en-US,en;q=0.5" \
+--cookie "__atuvc=1%7C6; dom3ic8zudi28v8lr6fgphwffqoz0j6c=39d958b5-4c51-411c-9885-e8f07116f003%3A3%3A1; XSRF-TOKEN=<xsrf here>; laravel_session=<laravel here>" \
+--header "Origin: https://streamm4u.com" \
+--header "Referer: https://streamm4u.com/watch/movie" \
+--header "Sec-Fetch-Dest: empty" \
+--header "Sec-Fetch-Mode: cors" \
+--header "Sec-Fetch-Site: same-origin" \
+--header "Te: trailers" \
+--user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
+--header "X-Requested-With: XMLHttpRequest" \
+--data-binary "_token=<token here>&m4u=<id_f here>" \
+https://streamm4u.com/anhjax
 
-# grep "<iframe src=" | cut -f2 -d =
+# It will fetch the embeded link.
+# like https://streamm4u.club/v/z7ek8ijkqwp33l8
+#                              |  embeded id  |
+else
+
+        echo "Work in progress"
 
 
-# else
-
-#         echo "later"
-
-
-# fi
+fi
 
 
 
@@ -65,3 +65,44 @@ cat temp2 | grep "fem\"" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr
 # now It should bypass cloudflare and recieve a json file with the embeded link, and we can proceed from there, but, something's wrong, and I don't know what
 # probably with the variables, but i'm not exactly great with bash..,
 # For any help, Thanks in advance.
+
+# Update 2: I can vouch for the cURL, IT WORKS
+# But I cannot seem to assign variable, so, If someone can, thanks.
+
+# Update 3: I am pre filling the next scrapes (also, can vouch for)
+# but, still, doesn't work.
+
+curl
+--header Content-Type: --compressed
+--header "Accept-Language: en-US,en;q=0.5" \
+--header "Origin: https://streamm4u.club" \
+--header "Referer: https://streamm4u.club" \
+--header "Sec-Fetch-Dest: empty" \
+--header "Sec-Fetch-Mode: cors" \
+--header "Sec-Fetch-Site: same-origin" \
+--header "Te: trailers" \
+--user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
+--header "X-Requested-With: XMLHttpRequest" \
+--data "" \
+https://streamm4u.club/api/source/<embeded video id here>
+
+
+# Now it will return a Json with redirect tokens, for different video qualities and subtitle (will implement later)
+# also I'm not implementing any quality choise, yet, Once a working version is ready, I'll polish everything else.
+
+curl \
+--header "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
+--compressed \
+--header "Accept-Language: en-US,en;q=0.5" \
+--header "Referer: https://streamm4u.club/" \
+--header "Sec-Fetch-Dest: iframe" \
+--header "Sec-Fetch-Mode: navigate" \
+--header "Sec-Fetch-Site: cross-site" \
+--header "Sec-Fetch-User: ?1" \
+--header "Te: trailers" \
+--header "Upgrade-Insecure-Requests: 1" \
+--user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
+"https://fvs.io/redirector?token=<redirector token here>"
+
+
+# And now we'll get the .mp4, streaming/Download link.
