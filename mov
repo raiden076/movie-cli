@@ -22,7 +22,7 @@ cat temp2 | grep "XSRF" | awk -F '[=;]' '{print $2}' | tr -d " \t\n\r" | jq -sRr
 cat temp2 | grep "laravel" | awk -F '[=;]' '{print $2}' | tr -d " \t\n\r" | jq -sRr @uri > laravel
 
 # token=$(cat temp2 | grep "csrf" | awk -F '["]' '{print $4}' | tr -d " \t\n\r"  | jq -sRr @uri)
-token=$(cat temp2 | grep "csrf" | awk -F '["]' '{print $4}' | tr -d " \t\n\r"  | jq -sRr @uri) > csrf
+cat temp2 | grep "csrf" | awk -F '["]' '{print $4}' | tr -d " \t\n\r"  | jq -sRr @uri > token
 
 # id_f=$(cat temp2 | grep "fem\"" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr @uri)
 cat temp2 | grep "fem\"" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr @uri > id_f
