@@ -62,7 +62,7 @@ fi
 
 
 
-# now It should bypass cloudflare and recieve a json file with the embeded link, and we can proceed from there, but, something's wrong, and I don't know what
+# now It should bypass cloudflare and recieve a html with the embeded link, and we can proceed from there, but, something's wrong, and I don't know what
 # probably with the variables, but i'm not exactly great with bash..,
 # For any help, Thanks in advance.
 
