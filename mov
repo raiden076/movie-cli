@@ -11,41 +11,29 @@ curl -i --http2 \
 --header "Te: trailers" \
 --header "Upgrade-Insecure-Requests: 1" \
 --user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
-"$1" | \
-grep -e "laravel_session" -e "csrf" -e "fem" > temp1
+"$1" > temp1
+cat temp1 | grep -e "XSRF" -e "laravel_session" -e "csrf" -e "fem"  > temp2
+
+
+xsrf=$(cat temp1 | grep "XSRF" | awk -F '[=;]' '{print $2}' | tr -d " \t\n\r" | jq -sRr @uri)
+
+laravel=$(cat temp1 | grep "laravel" | awk -F '[=;]' '{print $2}' | tr -d " \t\n\r" | jq -sRr @uri)
+
+token=$(cat temp1 | grep "csrf" | awk -F '["]' '{print $4}' | tr -d " \t\n\r"  | jq -sRr @uri)
+
+id_f=$(cat temp1 | grep "fem\"" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr @uri)
+
+id_q=$(cat temp1 | grep "q_fem" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr @uri)
 
 
 
-cat temp1 | grep "laravel" | awk -F '[=;]' '{print $2}' | tr -d " \t\n\r" | jq -sRr @uri > cookie
+if [ -n id_f ]; then
 
-cat temp1 | grep "csrf" | awk -F '["]' '{print $4}' | tr -d " \t\n\r"  | jq -sRr @uri > token
-
-cat temp1 | grep "fem\"" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr @uri > id_f
-
-cat temp1 | grep "q_fem" | awk -F '["]' '{print $6}' | tr -d " \t\n\r" | jq -sRr @uri > id_q
-
-
-if [ -s id_f ]; then
-        cp id_f id
-else
-        cp id_q id
-fi
-echo cookie
-cat cookie
-echo token
-cat token
-echo id
-cat id
-id = $(cat id)
-token = $(cat token)
-cookie = $(cat cookie)
-
-
-curl \
+        curl \
 --header "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
 --compressed \
 --header "Accept-Language: en-US,en;q=0.5" \
---cookie "laravel_session=$cookie;ppu_main_3d9364e08b38a312f0fb17c14107437e=1; ppu_sub_3d9364e08b38a312f0fb17c14107437e=1" \
+--cookie "laravel_session=$cookie; ppu_main_3d9364e08b38a312f0fb17c14107437e=1; ppu_sub_3d9364e08b38a312f0fb17c14107437e=1" \
 --header "Origin: https://streamm4u.com" \
 --header "Referer: https://streamm4u.com/watch/movie/automata-2014.1265.html" \
 --header "Sec-Fetch-Dest: empty" \
@@ -54,6 +42,19 @@ curl \
 --header "Te: trailers" \
 --user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
 --header "X-Requested-With: XMLHttpRequest" \
---data-binary "_token=$token&m4u=$id" \
-https://streamm4u.com/anhjax
+--data-binary "_token=$token&m4u=$id_f" \
+https://streamm4u.com/anhjax \ |
+
+grep "<iframe src=" | cut -f2 -d =
+
+
+else
+
+        echo "later"
+
+
+fi
+
+
+
 
