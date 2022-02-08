@@ -1,0 +1,39 @@
+#!/bin/bash
+
+initial_request=`curl -i --http2 --user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" $1`
+xsrf=`echo $initial_request | grep -Po "(?<=XSRF-TOKEN=)(\S+)(?=;)" | jq -sRr @uri`
+
+laravel=`echo $initial_request | grep -Po "(?<=laravel_session=)(\S+)(?=;)" | jq -sRr @uri`
+
+token=`echo $initial_request | grep -Po '(?<="csrf-token" content=")[^"]+' | jq -sRr @uri`
+
+id_f=`echo $initial_request | grep -Po '(?<=\"fem\" class="singlemv" data=")[^"]+' | jq -sRr @uri`
+
+id_q= `echo $initial_request | grep -Po '(?<=\"q_fem\" class="singlemv" data=")[^"]+' | jq -sRr @uri`
+
+
+# echo $xsrf
+# echo $laravel
+# echo $token
+# echo $id_f
+
+
+curl \
+--header "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+--compressed \
+--header "Accept-Language: en-US,en;q=0.5" \
+--cookie "__atuvc=1%7C6; dom3ic8zudi28v8lr6fgphwffqoz0j6c=39d958b5-4c51-411c-9885-e8f07116f003%3A3%3A1; XSRF-TOKEN=$xsrf; laravel_session=$laravel" \
+--header "Origin: https://streamm4u.com" \
+--header "Referer: https://streamm4u.com/watch/movie" \
+--header "Sec-Fetch-Dest: empty" \
+--header "Sec-Fetch-Mode: cors" \
+--header "Sec-Fetch-Site: same-origin" \
+--header "Te: trailers" \
+--user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
+--header "X-Requested-With: XMLHttpRequest" \
+--data-binary "_token=$token&m4u=$id_f" \
+https://streamm4u.com/anhjax
+
+
+
+# And I quit.
