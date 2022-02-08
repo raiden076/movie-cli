@@ -1,0 +1,92 @@
+{
+  "success": true,
+  "player": {
+    "poster_file": "/userdata/223091/poster/z/7e/z7ek8ijkqwp33l8.png?v=1622797331",
+    "logo_file": "/userdata/223091/player/15795_logo.png?v=1613719678",
+    "logo_position": "control-bar",
+    "logo_link": "http://m4ufree.tv",
+    "logo_margin": 10,
+    "aspectratio": "16:9",
+    "powered_text": "M4uFree Player",
+    "powered_url": "http://m4ufree.tv",
+    "css_background": "rgba(0, 0, 0, 0)",
+    "css_text": "#f2f2f2",
+    "css_menu": "#333333",
+    "css_mntext": "#ffffff",
+    "css_caption": "#000000",
+    "css_cttext": "#ffffff",
+    "css_ctsize": "15",
+    "css_ctopacity": "40",
+    "css_ctedge": "none",
+    "css_icon": "rgba(255, 255, 255, 0.8)",
+    "css_ichover": "#ffffff",
+    "css_tsprogress": "#f2f2f2",
+    "css_tsrail": "rgba(255, 255, 255, 0.3)",
+    "css_button": "#565656",
+    "css_bttext": "#ffffff",
+    "opt_autostart": false,
+    "opt_title": false,
+    "opt_quality": true,
+    "opt_caption": true,
+    "opt_download": true,
+    "opt_sharing": true,
+    "opt_playrate": false,
+    "opt_mute": false,
+    "opt_loop": false,
+    "opt_vr": true,
+    "opt_cast": {
+      "appid": "00000000"
+    },
+    "opt_nodefault": true,
+    "opt_forceposter": false,
+    "opt_parameter": false,
+    "restrict_domain": "m4ufree.com,m4ufree.tv,m4ufree.fun,m4ufree.site,m4ufree.live,m4ufree.life,m4ufree.to,m4ufrees.com,m4uhd.com,m4uhd.tv,moviesm4u.org,moviesm4u.net,streamm4u.com,streamm4u.ws,them4ufree.info,movies123.club,ww1.m4ufree.com,ww1.m4ufree.site,www1.movie123.club,m4uhd.net,streamm4u.net,ww2.m4ufree.com,m4umv.org,ww1.m4ufree.info",
+    "restrict_action": "DisplayErrorPage",
+    "restrict_target": "Please go to m4ufree.tv to watch this video",
+    "resume_enable": true,
+    "resume_text": "Welcome back! You left off at xx:xx:xx. Would you like to resume watching?",
+    "resume_yes": "Yes, Please",
+    "resume_no": "No, Thanks",
+    "adb_enable": false,
+    "adb_offset": "0",
+    "adb_text": "Please turn off adblockers in order to continue watching",
+    "ads_adult": false,
+    "ads_pop": false,
+    "ads_vast": true,
+    "ads_free": 0,
+    "trackingId": "UA-125573286-1",
+    "income": false,
+    "incomePop": false,
+    "logger": "https://v3.fstats.xyz",
+    "revenue": "/asset/jquery/slim-3.2.min.js?c=IN&t=467",
+    "revenue_fallback": "/asset/angular.min.js?t=3",
+    "revenue_track": "https://mc.yandex.ru/watch/56313682"
+  },
+  "data": [
+    {
+      "file": "https://fvs.io/redirector?token=eTg1cmNZMFR6YWRjeWtIWWRpalVhUDBtK0pRcGNraFlpeFJyb3FLUklkdmxzc2g3NjdUMnhYMXh0Y0VTdlVBYmIxSDhiK3UzWjJGcTVtdi9LemFhbHV0YThHbzBzL3d1RksxRlIwbkVXd01zb3pwTGh0N0hiV1p2QzJzdy9HQjZyb2xWNkh2ZlcrR1c5NVpMOUdlQW1tMVk4b01KUHVTOGxMUT06eWxmT2w2Y3ZyNkdudEliWU1jeWtTQT09tyW6",
+      "label": "480p",
+      "type": "mp4"
+    },
+    {
+      "file": "https://fvs.io/redirector?token=enMwT1hFOVF3M0RtMFE4R1Z6NDhCbTRYN0wySk5LSGtpUnZ6Ky8zaFVqUVN1Nng0aFJwK0lyc3hrd1ZBRU1lbUt1OHhlMTYwUHVnRFM5K2RMZVd2dkZlSjEzMlRoellwSWkvcHN5dFQ4V3dZakFmdEtJQXBlNjY2cHhsM2dTSEh6aTV6aXREK0QvRXNTZ2R5V3F5dDczMUNBWW9FTkRaMHlTcz06Y3JqcUIwZzJIcHJMWFU0U2h4ZE5yQT09uGTg",
+      "label": "720p",
+      "type": "mp4"
+    },
+    {
+      "file": "https://fvs.io/redirector?token=K2FBTU03OWh1empoWjluMndVZThSM3NrV3pYRC8zdzR3Mko4UUFMdnV1dUE3SWJ4empYc0IrVmR3ZWQvWmkzdGQ0Z3ZOelhxcGxZelI2bXU5SVNtREtSWGdRTmxYc09NOExDZ09VRi9Uc3VrWm4zQ21FV1ExelpzMDhzTFRpQUZuUTM0VWROSDBHVnFsajFMUzFoRjUyYzE0a0dwOTAza1BZTGY6YjVRY0k3ZlRlWDVSSUpOY0FwcVkxZz09HJX0",
+      "label": "1080p",
+      "type": "mp4"
+    }
+  ],
+  "captions": [
+    {
+      "id": "768959",
+      "hash": "z7ek8ijkqwp33l8",
+      "language": "da7e8b34ea",
+      "extension": "srt",
+      "created_at": "2021-09-22 08:53:57"
+    }
+  ],
+  "is_vr": false
+}

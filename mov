@@ -87,7 +87,7 @@ curl
 https://streamm4u.club/api/source/<embeded video id here>
 
 
-# Now it will return a Json with redirect tokens, for different video qualities and subtitle (will implement later)
+# Now it will return a Json with redirect tokens, for different video qualities and subtitles (will implement sub later)
 # also I'm not implementing any quality choise, yet, Once a working version is ready, I'll polish everything else.
 
 curl \
@@ -105,4 +105,5 @@ curl \
 "https://fvs.io/redirector?token=<redirector token here>"
 
 
-# And now we'll get the .mp4, streaming/Download link.
+# And now we'll get the .mp4, streaming/Download link. finally.
+# like this https://www1138.ff-03.com/token=AAnB78w6_ZunNje81OlTrw/1644333285/103.135.0.0/23/7/0c/8024b81eb38e725a5572e9f684ec40c7-1080p.mp4
