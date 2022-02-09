@@ -115,4 +115,4 @@ link_html = requests.get(url=fuck_bash, headers=headers)
 
 # the .mp4 file is in the headers.
 # I don't know why, but maybe this is a redirector, and python doesn't like it, or something?
-# Anyway, I know you probably don't can fix this.
+# Anyway, I know you probably can fix this.
