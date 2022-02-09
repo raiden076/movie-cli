@@ -72,19 +72,7 @@ fi
 # Update 3: I am pre filling the next scrapes (also, can vouch for)
 # but, still, doesn't work.
 
-curl
---header Content-Type: --compressed
---header "Accept-Language: en-US,en;q=0.5" \
---header "Origin: https://streamm4u.club" \
---header "Referer: https://streamm4u.club" \
---header "Sec-Fetch-Dest: empty" \
---header "Sec-Fetch-Mode: cors" \
---header "Sec-Fetch-Site: same-origin" \
---header "Te: trailers" \
---user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" \
---header "X-Requested-With: XMLHttpRequest" \
---data "" \
-https://streamm4u.club/api/source/<embeded video id here>
+curl --header Content-Type: --compressed --header "Accept-Language: en-US,en;q=0.5" --header "Origin: https://streamm4u.club" --header "Referer: https://streamm4u.club" --header "Sec-Fetch-Dest: empty" --header "Sec-Fetch-Mode: cors" --header "Sec-Fetch-Site: same-origin" --header "Te: trailers" --user-agent "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0" --header "X-Requested-With: XMLHttpRequest" --data "" https://streamm4u.club/api/source/z7ek8ijkqwp33l8
 
 
 # Now it will return a Json with redirect tokens, for different video qualities and subtitles (will implement sub later)
