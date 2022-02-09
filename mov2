@@ -12,10 +12,10 @@ id_f=`echo $initial_request | grep -Po '(?<=\"fem\" class="singlemv" data=")[^"]
 id_q= `echo $initial_request | grep -Po '(?<=\"q_fem\" class="singlemv" data=")[^"]+' | jq -sRr @uri`
 
 
-# echo $xsrf
-# echo $laravel
-# echo $token
-# echo $id_f
+echo "xsrf is $xsrf"
+echo "laravel is $laravel"
+echo "token is $token"
+echo "id_f is $id_f"
 
 
 curl \

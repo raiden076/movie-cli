@@ -120,10 +120,4 @@ subprocess.Popen(["mpv", stream_link])
 
 
 # soup3 = BeautifulSoup(link_html.text, "html.parser")
-
-# the .mp4 file is in the headers.
-# I don't know why, but maybe this is a redirector, and python doesn't like it, or something?
-# Anyway, I know you probably don't can fix this.
-# nevermind, got it..
-
 # https://streamm4u.com/watch/movie/interstellar-2014.21586.html
