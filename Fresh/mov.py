@@ -2,6 +2,7 @@ import requests
 import json
 import re
 from bs4 import BeautifulSoup
+import subprocess
 
 # using beautifulsoup4, cause I'm lazy, and still not that good at regex
 import urllib.parse
@@ -109,10 +110,20 @@ headers = {
 
 fuck_bash = "https://fvs.io/redirector?token=" + tok_1080
 
-link_html = requests.get(url=fuck_bash, headers=headers)
+link_html = requests.head(url=fuck_bash, headers=headers)
+
+stream_link = link_html.headers["Location"]
+
+subprocess.Popen(["mpv", stream_link])
+
+# print(link_html.headers)
+
 
 # soup3 = BeautifulSoup(link_html.text, "html.parser")
 
 # the .mp4 file is in the headers.
 # I don't know why, but maybe this is a redirector, and python doesn't like it, or something?
 # Anyway, I know you probably don't can fix this.
+# nevermind, got it..
+
+# https://streamm4u.com/watch/movie/interstellar-2014.21586.html
